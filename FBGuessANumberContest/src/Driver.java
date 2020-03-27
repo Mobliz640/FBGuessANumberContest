@@ -61,6 +61,34 @@ public class Driver {
 			int bestNumber=1;    //number you should guess to have best chance of getting closest without going over
 			int gap = 0;       //number of possible guesses that bestNumber could win with
 			
+			//check the lowest guess against minGuess
+			System.out.println("Evaluating bound: "+minGuess);
+			if(numbersList.get(0)-minGuess > gap)
+			{
+				//if new largest gap is found, update gap and bestNumber
+				int oldGap = gap;
+				gap = numbersList.get(0)-minGuess;
+				System.out.println(numbersList.get(0)+"-"+minGuess+"="+gap);
+				System.out.println("old gap: "+oldGap+" was less than new gap: "+gap);
+				
+				bestNumber = minGuess;
+				System.out.println("new best number: "+bestNumber);
+			}
+			
+			//check the highest guess against maxGuess
+			System.out.println("Evaluating bound: "+maxGuess);
+			if(maxGuess-numbersList.get(numbersList.size()-1) > gap)
+			{
+				//if new largest gap is found, update gap and bestNumber
+				int oldGap = gap;
+				gap = maxGuess-numbersList.get(numbersList.size()-1);
+				System.out.println(maxGuess+"-"+numbersList.get(numbersList.size()-1)+"="+gap);
+				System.out.println("old gap: "+oldGap+" was less than new gap: "+gap);
+				
+				bestNumber = numbersList.get(numbersList.size()-1)+1;
+				System.out.println("new best number: "+bestNumber);
+			}
+			
 			for(int i = 0; i < numbersList.size()-1; i++)
 			{
 				//Check each guess with the next largest guess to determine the gap in between
