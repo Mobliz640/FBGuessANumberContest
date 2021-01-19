@@ -4,4 +4,4 @@ When other guesses are known (such as on online comments on Youtube or Facebook)
 
 By providing a text file containing guesses already made by other contestants, program will find the largest remaining gap.
 
-![Sample console output](sample console output.png)
+![Sample console output](Sample_console_output.png)
